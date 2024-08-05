@@ -21,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        android:background="transparent"
         android:contentDescription="@string/app_name"
         android:src="@drawable/cafeteria_removebg"/>
 
