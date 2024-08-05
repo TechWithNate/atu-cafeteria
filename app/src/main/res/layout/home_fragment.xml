@@ -40,7 +40,7 @@
               android:textColor="@color/black"
               android:textSize="20sp"
               android:layout_marginStart="20dp"
-              android:layout_marginTop="20dp"
+              android:layout_marginTop="40dp"
               android:drawableStart="@drawable/baseline_location_pin"
               android:drawablePadding="8dp"
               android:id="@+id/location"/>
@@ -121,6 +121,7 @@
               android:layout_marginStart="20dp"
               android:layout_marginEnd="20dp"
               android:layout_marginTop="10dp"
+              android:layout_marginBottom="30dp"
               android:layout_width="match_parent"
               android:layout_height="match_parent"/>
 
