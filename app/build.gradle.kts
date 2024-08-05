@@ -42,5 +42,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.glide)
     implementation(libs.imageslideshow)
+//    implementation(libs.autoimageslider)
 
 }

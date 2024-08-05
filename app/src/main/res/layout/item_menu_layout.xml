@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:text="Fried Rice and Chicken"
         android:textColor="@color/black"
@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:text="GHC 9.00"
             android:textColor="#FF0000"
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:text="GHC 9.00"
             android:layout_marginStart="20dp"
             android:textColor="@color/main_dark"
@@ -62,7 +62,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="12sp"
             android:text="10 - 20mins"
             android:layout_marginStart="20dp"
             android:drawablePadding="7dp"

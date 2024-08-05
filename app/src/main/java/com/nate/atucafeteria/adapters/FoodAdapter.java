@@ -1,6 +1,7 @@
 package com.nate.atucafeteria.adapters;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,6 +67,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
             foodPrice = itemView.findViewById(R.id.food_price);
             oldPrice = itemView.findViewById(R.id.old_price);
             readyTime = itemView.findViewById(R.id.ready_time);
+
+            oldPrice.setPaintFlags(oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         }
     }
