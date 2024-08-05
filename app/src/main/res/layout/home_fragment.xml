@@ -1,41 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+<!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                app:navigationIcon="@drawable/baseline_home"
-                android:layout_width="match_parent"
-                app:title="Location"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+<!--            <androidx.appcompat.widget.Toolbar-->
+<!--                android:id="@+id/toolbar"-->
+<!--                app:navigationIcon="@drawable/baseline_home"-->
+<!--                android:layout_width="match_parent"-->
+<!--                app:title="Location"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                app:layout_collapseMode="pin" />-->
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+<!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
 
 
-    </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Location"
+              android:textColor="@color/black"
+              android:textSize="20sp"
+              android:layout_marginStart="20dp"
+              android:layout_marginTop="20dp"
+              android:drawableStart="@drawable/baseline_location_pin"
+              android:drawablePadding="8dp"
+              android:id="@+id/location"/>
+
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/location"
+              android:layout_marginStart="20dp"
+              android:layout_marginEnd="20dp"
+              android:layout_marginTop="20dp"
+              android:textSize="13sp"
+              android:hint="Fried Rice and Chicken"
+              android:textColorHint="@color/main_dark"
+              android:textColor="@color/black"
+              android:drawablePadding="9dp"
+              android:background="@drawable/white_txt_bg"
+              android:drawableStart="@drawable/baseline_search"
+              android:id="@+id/search_bar"/>
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="20dp"
+              android:layout_marginEnd="20dp"
+              android:text="Bon Apetit!😋"
+              android:textColor="@color/black"
+              android:textStyle="bold"
+              android:layout_marginTop="20dp"
+              android:textSize="20sp"
+              android:layout_below="@id/search_bar"
+              android:id="@+id/welcome_txt"/>
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="200dp"
+              android:layout_marginStart="20dp"
+              android:layout_marginEnd="20dp"
+              android:layout_below="@+id/welcome_txt"
+              android:layout_marginTop="10dp"
+              android:id="@+id/slider_card"
+              app:strokeWidth="0dp">
+
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+                  <com.denzcoskun.imageslider.ImageSlider
+                      android:id="@+id/image_slider"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      app:iss_auto_cycle="true"
+                      app:iss_period="1000"
+                      app:iss_delay="1000"
+                      app:iss_text_align="CENTER"/>
+
+              </RelativeLayout>
+
+          </com.google.android.material.card.MaterialCardView>
+
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="20dp"
+              android:layout_marginEnd="20dp"
+              android:text="Order your next meal here!👇"
+              android:textColor="@color/black"
+              android:textStyle="bold"
+              android:textSize="20sp"
+              android:layout_below="@id/slider_card"
+              android:layout_marginTop="30dp"
+              android:id="@+id/order_txt"/>
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/food_recycler"
+              android:layout_below="@+id/order_txt"
+              android:layout_marginStart="20dp"
+              android:layout_marginEnd="20dp"
+              android:layout_marginTop="10dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"/>
+
+      </RelativeLayout>
+
+
+
+</ScrollView>
