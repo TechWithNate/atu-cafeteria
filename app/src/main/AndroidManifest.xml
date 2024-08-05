@@ -13,6 +13,21 @@
         android:theme="@style/Theme.ATUCafeteria"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CreateAccount"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Login"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
