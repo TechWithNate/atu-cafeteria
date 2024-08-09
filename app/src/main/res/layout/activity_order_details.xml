@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.OrderDetails">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/food_img"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/app_name"
+        android:id="@+id/food_image"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/food_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="Fried Rice and Chicken"
+        android:id="@+id/food_name"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/food_name"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:text="GHS 12.00"
+        android:textStyle="bold"
+        android:id="@+id/food_price"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/food_name"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        android:layout_toEndOf="@+id/"
+        android:textSize="15sp"
+        android:text="GHS 10.00"
+        android:textStyle="bold"
+        android:id="@+id/old_price"/>
+
+
+
+</RelativeLayout>
