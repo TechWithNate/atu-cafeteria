@@ -110,7 +110,7 @@
               android:text="Order your next meal here!👇"
               android:textColor="@color/black"
               android:textStyle="bold"
-              android:textSize="20sp"
+              android:textSize="18sp"
               android:layout_below="@id/slider_card"
               android:layout_marginTop="30dp"
               android:id="@+id/order_txt"/>
