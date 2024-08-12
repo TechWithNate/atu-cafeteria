@@ -124,7 +124,7 @@
             android:layout_marginTop="30dp"
             android:text="Create Account"
             android:layout_marginBottom="30dp"
-            android:textColor="#536DFE"
+            android:textColor="#FFC107"
             android:textSize="18sp" />
 
     </LinearLayout>

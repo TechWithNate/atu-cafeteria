@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.OrderDetails">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/food_img"
+        android:id="@+id/food_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:id="@+id/food_name"
+        android:text="Fried Rice and Grilled Chicken"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="50dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:id="@+id/food_price"
+        android:text="GHC 40.00"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="50dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:padding="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/curve"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/baseline_sub"
+            android:contentDescription="Minus"
+            android:id="@+id/sub_order"/>
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:text="1"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/quantity"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="36dp"
+            android:src="@drawable/baseline_add"
+            android:contentDescription="Minus"
+            android:id="@+id/add_order"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/main_dark"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        android:text="Add \n GHC 40.00"
+        android:id="@+id/add_btn"/>
+
+
+</LinearLayout>

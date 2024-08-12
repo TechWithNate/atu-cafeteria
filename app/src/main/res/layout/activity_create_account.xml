@@ -117,14 +117,14 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_btn"
+            android:id="@+id/create_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="20dp"
             android:textColor="@color/black"
-            android:text="Login"
+            android:text="Create Account"
             android:textSize="15sp"
             app:backgroundTint="@color/white"
             app:cornerRadius="10dp" />
@@ -139,15 +139,16 @@
             android:id="@+id/progress_bar"/>
 
         <TextView
-            android:id="@+id/create_acc_btn"
+            android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginTop="30dp"
-            android:text="Create Account"
+            android:text="Login"
             android:layout_marginBottom="30dp"
             android:textColor="#FFC107"
             android:textSize="18sp" />
+
 
     </LinearLayout>
 
