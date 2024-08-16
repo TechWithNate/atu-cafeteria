@@ -86,7 +86,7 @@
         android:layout_marginEnd="20dp"
         android:textColor="@color/white"
         app:cornerRadius="10dp"
-        android:text="Add \n GHC 40.00"
+        android:text="@string/add_n_ghc_40_00"
         android:id="@+id/add_btn"/>
 
 
