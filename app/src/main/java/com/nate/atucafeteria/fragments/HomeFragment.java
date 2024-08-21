@@ -1,11 +1,14 @@
 package com.nate.atucafeteria.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,16 +20,17 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.nate.atucafeteria.R;
+import com.nate.atucafeteria.activities.OrderDetails;
 import com.nate.atucafeteria.adapters.FoodAdapter;
 import com.nate.atucafeteria.models.FoodModel;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements FoodAdapter.ItemClickedListener {
 
     private View view;
     private TextView location;
-    private EditText searchBar;
+    private SearchView searchBar;
     private ImageSlider slider;
     private RecyclerView foodRecycler;
     private FoodAdapter foodAdapter;
@@ -62,8 +66,23 @@ public class HomeFragment extends Fragment {
 
         foodRecycler.setHasFixedSize(true);
         foodRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
-        foodAdapter = new FoodAdapter(getContext(), foodModels);
+        foodAdapter = new FoodAdapter(getContext(), foodModels, this);
         foodRecycler.setAdapter(foodAdapter);
+
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                foodAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                foodAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
 
         return view;
     }
@@ -76,5 +95,15 @@ public class HomeFragment extends Fragment {
     }
 
 
+    @Override
+    public void itemClicked(int position) {
+        openOrderPage(foodModels.get(position));
+        Toast.makeText(getContext(), "Food menu: "+position, Toast.LENGTH_SHORT).show();
+    }
 
+    private void openOrderPage(FoodModel foodModel) {
+        Intent intent = new Intent(getContext(), OrderDetails.class);
+        intent.putExtra("menu", foodModel);
+        startActivity(intent);
+    }
 }

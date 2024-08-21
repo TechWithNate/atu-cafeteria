@@ -12,6 +12,9 @@ public class FoodModel implements Parcelable {
     private String price;
     private String oldPrice;
     private String readyTime;
+    private String deliveryStatus;
+    private String orderTime;
+
 
 
     public FoodModel() {
@@ -65,6 +68,22 @@ public class FoodModel implements Parcelable {
 
     public String getName() {
         return name;
+    }
+
+    public String getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
     }
 
     public void setName(String name) {

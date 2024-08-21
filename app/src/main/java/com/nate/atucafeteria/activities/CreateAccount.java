@@ -82,7 +82,7 @@ public class CreateAccount extends AppCompatActivity {
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
                 progressBar.setVisibility(View.GONE);
-                openHomePage();
+                openCreateAccountPage();
             }else {
                 Toast.makeText(CreateAccount.this, "Error: "+task.getException(), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
@@ -93,8 +93,15 @@ public class CreateAccount extends AppCompatActivity {
         });
     }
 
+    private void openCreateAccountPage() {
+        startActivity(new Intent(CreateAccount.this, CreateProfile.class));
+        finish();
+    }
+
     private void openHomePage() {
-        startActivity(new Intent(CreateAccount.this, Home.class));
+        Intent intent = new Intent(CreateAccount.this, Home.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
         finish();
     }
 
@@ -103,5 +110,12 @@ public class CreateAccount extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (firebaseAuth.getCurrentUser() != null){
+            openHomePage();
+        }
 
+    }
 }
