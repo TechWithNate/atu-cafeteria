@@ -3,17 +3,21 @@ package com.nate.atucafeteria.activities;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +34,7 @@ import java.util.ArrayList;
 public class AdminHome extends AppCompatActivity {
 
     private ExtendedFloatingActionButton addMenu;
+    private MaterialToolbar topAppBar;
     private RecyclerView allFoodRecycler;
     private ArrayList<FoodModel> foodModels;
     private ImageView backBtn;
@@ -49,6 +54,22 @@ public class AdminHome extends AppCompatActivity {
         });
         initViews();
 
+//        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                int menuId = item.getItemId();
+//                if (menuId == R.id.all_menu){
+//                    startActivity(new Intent(AdminHome.this, AllAdminMenu.class));
+//                    finish();
+//                } else if (menuId == R.id.logout) {
+//                    firebaseAuth.signOut();
+//                    startActivity(new Intent(AdminHome.this, Login.class));
+//                    finish();
+//                }
+//                return false;
+//            }
+//        });
+
         allFoodRecycler.setHasFixedSize(true);
         allFoodRecycler.setLayoutManager(new LinearLayoutManager(this));
         ordersAdapter = new AdminOrdersAdapter(foodModels, this, position -> {
@@ -59,6 +80,23 @@ public class AdminHome extends AppCompatActivity {
         allFoodRecycler.setAdapter(ordersAdapter);
 
 
+
+//        allFoodRecycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//
+//                if (dy > 0 && addMenu.isExtended()) {
+//                    // User scrolled down and the FAB is currently extended - shrink it
+//                    addMenu.shrink();
+//                } else if (dy < 0 && !addMenu.isExtended()) {
+//                    // User scrolled up and the FAB is currently not extended - extend it
+//                    addMenu.extend();
+//                }
+//            }
+//        });
+
+
         fetchAllOrdersFromFirebase();
     }
 
@@ -66,6 +104,7 @@ public class AdminHome extends AppCompatActivity {
         addMenu = findViewById(R.id.add_item);
         allFoodRecycler = findViewById(R.id.all_orders);
         backBtn = findViewById(R.id.back_btn);
+        topAppBar = findViewById(R.id.topAppBar);
 
         foodModels = new ArrayList<>();
 

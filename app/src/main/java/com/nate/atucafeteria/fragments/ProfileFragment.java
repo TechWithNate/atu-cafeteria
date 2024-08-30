@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nate.atucafeteria.R;
+import com.nate.atucafeteria.activities.EditProfile;
 import com.nate.atucafeteria.activities.Login;
 
 import java.util.Objects;
@@ -27,8 +28,8 @@ public class ProfileFragment extends Fragment {
     private View view;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-    private TextView username, contact;
-    private MaterialButton logout;
+    private TextView username, contact, gender, aboutUs, email;
+    private MaterialButton logout, editBtn;
 
     @Nullable
     @Override
@@ -41,6 +42,14 @@ public class ProfileFragment extends Fragment {
             startActivity(new Intent(getActivity(), Login.class));
             getActivity().finish();
         });
+
+        editBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getContext(), EditProfile.class);
+            intent.putExtra("username", username.getText().toString());
+            intent.putExtra("contact", contact.getText().toString());
+            startActivity(intent);
+        });
+
         return view;
     }
 
@@ -49,7 +58,11 @@ public class ProfileFragment extends Fragment {
         databaseReference = FirebaseDatabase.getInstance().getReference("cafeteria_orders");
         username = view.findViewById(R.id.username);
         contact = view.findViewById(R.id.contact);
+        email = view.findViewById(R.id.email);
+        gender = view.findViewById(R.id.gender);
+        aboutUs = view.findViewById(R.id.about);
         logout = view.findViewById(R.id.logout);
+        editBtn = view.findViewById(R.id.edit_profile);
     }
 
 
@@ -60,6 +73,8 @@ public class ProfileFragment extends Fragment {
                     String name = snapshot.child("username").getValue(String.class);
                     String imageUrl = snapshot.child("image").getValue(String.class);
                     username.setText(name);
+                    email.setText(firebaseAuth.getCurrentUser().getEmail());
+                    gender.setText(snapshot.child("gender").getValue(String.class));
 
                     contact.setText(snapshot.child("contact").getValue(String.class));
 

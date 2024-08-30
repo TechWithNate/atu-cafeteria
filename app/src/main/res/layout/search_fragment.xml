@@ -4,16 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="0dp"
+        android:id="@+id/title"
+        android:text="ATU Cafeteria"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/open_sans_bold"/>
+
+    <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:autofillHints="name"
         android:inputType="none"
         android:textSize="13sp"
-        android:hint="Fried Rice and Chicken"
+        android:layout_below="@+id/title"
+        android:queryHint="Search items"
         android:textColorHint="@color/main_dark"
         android:textColor="@color/black"
         android:drawablePadding="9dp"
@@ -22,6 +37,17 @@
         android:id="@+id/search_bar"/>
 
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/food_recycler"
+        android:layout_below="@+id/search_bar"
+        android:layout_marginStart="20dp"
+        android:visibility="gone"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 

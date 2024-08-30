@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.material.card.MaterialCardView;
 import com.nate.atucafeteria.R;
 import com.nate.atucafeteria.activities.OrderDetails;
 import com.nate.atucafeteria.adapters.FoodAdapter;
@@ -35,6 +36,8 @@ public class HomeFragment extends Fragment implements FoodAdapter.ItemClickedLis
     private RecyclerView foodRecycler;
     private FoodAdapter foodAdapter;
     private ArrayList<FoodModel> foodModels;
+    private TextView welcomTxt;
+    private MaterialCardView sliderCard;
 
 
     @Nullable
@@ -79,6 +82,8 @@ public class HomeFragment extends Fragment implements FoodAdapter.ItemClickedLis
             @Override
             public boolean onQueryTextChange(String newText) {
                 foodAdapter.getFilter().filter(newText);
+                welcomTxt.setVisibility(View.GONE);
+                sliderCard.setVisibility(View.GONE);
                 return false;
             }
         });
@@ -92,6 +97,8 @@ public class HomeFragment extends Fragment implements FoodAdapter.ItemClickedLis
         searchBar = view.findViewById(R.id.search_bar);
         slider = view.findViewById(R.id.image_slider);
         foodRecycler = view.findViewById(R.id.food_recycler);
+        welcomTxt = view.findViewById(R.id.welcome_txt);
+        sliderCard = view.findViewById(R.id.slider_card);
     }
 
 

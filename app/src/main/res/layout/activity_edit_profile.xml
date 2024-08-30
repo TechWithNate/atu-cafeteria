@@ -6,31 +6,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".activities.CreateProfile">
+    tools:context=".activities.EditProfile">
+
 
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/create_profile_btn"
+        android:layout_below="@+id/edit"
+        android:visibility="gone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:id="@+id/progress_bar"/>
 
-    <ImageView
-        android:id="@+id/user_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop"
-        android:src="@drawable/atu_cafeteria_logo" />
+        android:id="@+id/title"/>
+
+
 
     <TextView
         android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/user_img"
+        android:layout_below="@+id/title"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/last_name"
@@ -49,43 +55,12 @@
         android:textColor="@color/black"
         android:textColorHint="#9F9F9F" />
 
-    <TextView
-        android:id="@+id/tv_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/gender"
-        android:textSize="15sp" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/gender_layout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_gender"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="20dp"
-        android:textColorHint="#757575">
-
-        <AutoCompleteTextView
-            android:id="@+id/gender"
-            style="@style/CustomAutoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/tv_tel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/gender_layout"
+        android:layout_below="@+id/username"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/contact"
@@ -106,14 +81,14 @@
         android:textColorHint="#9F9F9F" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/create_profile_btn"
+        android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tel"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="@string/create_profile"
+        android:text="Edit Profile"
         android:textColor="@color/white"
         app:backgroundTint="@color/main_dark"
         app:cornerRadius="10dp" />
