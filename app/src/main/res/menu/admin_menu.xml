@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/all_menu"
+        android:title="All Menu"
+        android:icon="@drawable/baseline_fastfood"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="1"/>
+
+    <item android:id="@+id/logout"
+        android:title="Logout"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/baseline_logout"
+        android:orderInCategory="2"/>
+
+
+</menu>

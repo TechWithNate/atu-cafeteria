@@ -208,9 +208,8 @@ public class ProcessOrder extends AppCompatActivity {
 
     private void placeOrder() {
         DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference("cafeteria_orders");
-        DatabaseReference userOrderRef = FirebaseDatabase.getInstance().getReference(firebaseAuth.getUid()).child("orders");
-        DatabaseReference allOrdersRef = FirebaseDatabase.getInstance().getReference("cafeteria").child("all-orders");
 
+        String orderID = orderRef.push().getKey();
         // Get the current date and time
         Calendar calendar = Calendar.getInstance();
 
@@ -221,6 +220,8 @@ public class ProcessOrder extends AppCompatActivity {
         String formattedDateTime = sdf.format(calendar.getTime());
         Map<String, Object> orderDetails = new HashMap<>();
         orderDetails.put("imageUrl", image);
+        orderDetails.put("id", orderID);
+        orderDetails.put("buyerId", firebaseAuth.getUid());
         orderDetails.put("name", foodName);
         orderDetails.put("pickupCost", pickupCost.getText().toString());
         orderDetails.put("deliveryCost", deliveryCost.getText().toString());
@@ -233,7 +234,7 @@ public class ProcessOrder extends AppCompatActivity {
 
 
 
-        orderRef.child(firebaseAuth.getUid()).child("orders").push().setValue(orderDetails);
+        orderRef.child(firebaseAuth.getUid()).child("orders").child(orderID).setValue(orderDetails);
         orderRef.child("all_orders").push().setValue(orderDetails);
 //        userOrderRef.push().setValue(orderDetails);
 //        allOrdersRef.push().setValue(orderDetails);

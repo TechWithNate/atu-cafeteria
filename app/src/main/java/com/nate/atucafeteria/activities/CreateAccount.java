@@ -114,7 +114,12 @@ public class CreateAccount extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (firebaseAuth.getCurrentUser() != null){
-            openHomePage();
+            if (firebaseAuth.getCurrentUser().getEmail().equals("admin@atucafeteria.com")){
+                startActivity(new Intent(CreateAccount.this, AllAdminMenu.class));
+                finish();
+            }else {
+                openHomePage();
+            }
         }
 
     }

@@ -5,33 +5,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:strokeWidth="0dp"
+        app:cardCornerRadius="75dp"
+        android:id="@+id/app_img"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/atu_cafeteria_logo"
+            android:scaleType="centerCrop"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="John Doe"
+        android:text="ATU Cafeteria"
+        android:layout_toEndOf="@+id/app_img"
+        android:fontFamily="@font/open_sans_bold"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:textSize="25sp"
-        android:id="@+id/username"/>
+        android:id="@+id/title"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="+233546651113"
+        android:text="example@gmail.com"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_below="@+id/username"
-        android:id="@+id/contact"/>
+        android:textSize="13sp"
+        android:layout_below="@+id/title"
+        android:layout_toEndOf="@+id/app_img"
+        android:id="@+id/email"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contact"
+        android:layout_below="@+id/app_img"
         android:layout_marginTop="40dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -40,35 +62,35 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Payment"
+            android:text="Username"
             android:textColor="@color/main_dark"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:drawableStart="@drawable/baseline_payment"
             android:drawablePadding="20dp"
-            android:id="@+id/payment_txt"/>
+            android:id="@+id/username"
+            app:drawableStartCompat="@drawable/baseline_account" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Promo Codes"
+            android:text="0XX XXX XXXX"
             android:textColor="@color/main_dark"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:drawableStart="@drawable/baseline_local_offer"
             android:drawablePadding="20dp"
-            android:id="@+id/promo_code_txt"/>
+            android:id="@+id/contact"
+            app:drawableStartCompat="@drawable/baseline_local_phone" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile"
+            android:text="Gender"
             android:textColor="@color/main_dark"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:drawableStart="@drawable/baseline_account"
             android:drawablePadding="20dp"
-            android:id="@+id/profile"/>
+            android:id="@+id/gender"
+            app:drawableStartCompat="@drawable/baseline_gender" />
 
 
         <TextView
@@ -84,6 +106,24 @@
 
     </LinearLayout>
 
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cornerRadius="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Edit Profile"
+        android:layout_above="@+id/logout"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:backgroundTint="@color/white"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"
+        app:elevation="20dp"
+        app:rippleColor="@color/main_dark"
+        android:id="@+id/edit_profile"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"

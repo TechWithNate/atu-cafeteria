@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.nate.atucafeteria.R;
 
 public class Login extends AppCompatActivity {
@@ -76,8 +77,19 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()){
+
+                                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                                    if (user != null) {
+                                        String userEmail = user.getEmail();
+                                        if ("admin@atucafeteria.com".equals(userEmail)) {
+                                            openAdminHomePage();
+                                        } else {
+                                            openHomePage();
+                                        }
+                                    }
+
+
                                     progressBar.setVisibility(View.GONE);
-                                    openHomePage();
                                 }else{
                                     Toast.makeText(Login.this, "Error"+task.getException(), Toast.LENGTH_SHORT).show();
                                 }
@@ -90,6 +102,11 @@ public class Login extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    private void openAdminHomePage() {
+        startActivity(new Intent(Login.this, AllAdminMenu.class));
+        finish();
     }
 
     private void openHomePage() {
