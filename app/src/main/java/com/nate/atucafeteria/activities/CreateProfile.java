@@ -119,7 +119,7 @@ public class CreateProfile extends AppCompatActivity {
 
 
     private void navigateToHome() {
-        startActivity(new Intent(CreateProfile.this, Home.class));
+        startActivity(new Intent(CreateProfile.this, Login.class));
         finish();
     }
 

@@ -14,6 +14,7 @@
         android:layout_below="@+id/create_profile_btn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         android:id="@+id/progress_bar"/>
 
     <ImageView
