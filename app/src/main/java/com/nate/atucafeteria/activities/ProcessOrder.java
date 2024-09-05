@@ -2,6 +2,7 @@ package com.nate.atucafeteria.activities;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -411,7 +412,11 @@ public class ProcessOrder extends AppCompatActivity {
                         String access_code = data.getString("access_code");
 
                         // Start the PaymentWebViewActivity and pass the authorization URL
-                        Intent intent = new Intent(ProcessOrder.this, PaymentWebView.class);
+                        //Intent intent = new Intent(ProcessOrder.this, PaymentWebView.class);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(authorizationUrl));
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
                         intent.putExtra("access_code", access_code);
                         intent.putExtra("AUTHORIZATION_URL", authorizationUrl);
                         startActivity(intent);

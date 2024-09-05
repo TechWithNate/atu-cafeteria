@@ -18,6 +18,11 @@ public class FoodModel implements Parcelable {
     private String location;
     private String deliveryType;
 
+    private String ingred1;
+    private String ingred2;
+    private String ingred3;
+    private String ingred4;
+
 
 
     public FoodModel() {
@@ -45,26 +50,10 @@ public class FoodModel implements Parcelable {
         orderTime = in.readString();
         location = in.readString();
         deliveryType = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(buyerId);
-        dest.writeString(imageUrl);
-        dest.writeString(name);
-        dest.writeString(price);
-        dest.writeString(oldPrice);
-        dest.writeString(readyTime);
-        dest.writeString(deliveryStatus);
-        dest.writeString(orderTime);
-        dest.writeString(location);
-        dest.writeString(deliveryType);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        ingred1 = in.readString();
+        ingred2 = in.readString();
+        ingred3 = in.readString();
+        ingred4 = in.readString();
     }
 
     public static final Creator<FoodModel> CREATOR = new Creator<FoodModel>() {
@@ -167,6 +156,62 @@ public class FoodModel implements Parcelable {
         this.deliveryType = deliveryType;
     }
 
+    public String getIngred1() {
+        return ingred1;
+    }
+
+    public void setIngred1(String ingred1) {
+        this.ingred1 = ingred1;
+    }
+
+    public String getIngred2() {
+        return ingred2;
+    }
+
+    public void setIngred2(String ingred2) {
+        this.ingred2 = ingred2;
+    }
+
+    public String getIngred3() {
+        return ingred3;
+    }
+
+    public void setIngred3(String ingred3) {
+        this.ingred3 = ingred3;
+    }
+
+    public String getIngred4() {
+        return ingred4;
+    }
+
+    public void setIngred4(String ingred4) {
+        this.ingred4 = ingred4;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(buyerId);
+        dest.writeString(imageUrl);
+        dest.writeString(name);
+        dest.writeString(price);
+        dest.writeString(oldPrice);
+        dest.writeString(readyTime);
+        dest.writeString(deliveryStatus);
+        dest.writeString(orderTime);
+        dest.writeString(location);
+        dest.writeString(deliveryType);
+        dest.writeString(ingred1);
+        dest.writeString(ingred2);
+        dest.writeString(ingred3);
+        dest.writeString(ingred4);
+    }
+
     @Override
     public String toString() {
         return "FoodModel{" +
@@ -181,6 +226,10 @@ public class FoodModel implements Parcelable {
                 ", orderTime='" + orderTime + '\'' +
                 ", location='" + location + '\'' +
                 ", deliveryType='" + deliveryType + '\'' +
+                ", ingred1='" + ingred1 + '\'' +
+                ", ingred2='" + ingred2 + '\'' +
+                ", ingred3='" + ingred3 + '\'' +
+                ", ingred4='" + ingred4 + '\'' +
                 '}';
     }
 }
