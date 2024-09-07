@@ -49,42 +49,6 @@
         android:layout_height="wrap_content">
 
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip1"
-            android:layout_width="wrap_content"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:checked="true"
-            android:textColor="@color/black"
-            app:chipBackgroundColor="#E6E8EF"
-            android:layout_height="wrap_content"
-            android:text="Desert"/>
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip2"
-            android:textColor="@color/black"
-            app:chipBackgroundColor="#E6E8EF"
-            android:layout_width="wrap_content"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_height="wrap_content"
-            android:text="Desert"/>
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip3"
-            android:layout_width="wrap_content"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:chipBackgroundColor="#E6E8EF"
-            android:text="Desert"/>
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip4"
-            android:layout_width="wrap_content"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            app:chipBackgroundColor="#E6E8EF"
-            android:text="Desert"/>
 
         <!-- Chips can be declared here, or added dynamically. -->
 

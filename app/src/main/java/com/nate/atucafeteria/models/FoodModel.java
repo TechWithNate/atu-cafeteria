@@ -5,6 +5,32 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class FoodModel implements Parcelable {
     private String id;
     private String buyerId;
@@ -17,26 +43,35 @@ public class FoodModel implements Parcelable {
     private String orderTime;
     private String location;
     private String deliveryType;
-
-    private String ingred1;
-    private String ingred2;
-    private String ingred3;
-    private String ingred4;
-
-
+    private String ingred;
+//    private Map<String, List<Ingredient>> foodIngredientsMap;
 
     public FoodModel() {
     }
 
-    public FoodModel(String id, String imageUrl, String name, String price, String oldPrice, String readyTime) {
+    public FoodModel(String id, String imageUrl, String name, String price, String oldPrice, String readyTime, String deliveryStatus, String orderTime, String location, String deliveryType, String ingred) {
         this.id = id;
         this.imageUrl = imageUrl;
         this.name = name;
         this.price = price;
         this.oldPrice = oldPrice;
         this.readyTime = readyTime;
+        this.deliveryStatus = deliveryStatus;
+        this.orderTime = orderTime;
+        this.location = location;
+        this.deliveryType = deliveryType;
+        this.ingred = ingred;
     }
 
+    public FoodModel(String id, String imageUrl, String name, String price, String oldPrice, String readyTime, String ingred) {
+        this.id = id;
+        this.imageUrl = imageUrl;
+        this.name = name;
+        this.price = price;
+        this.oldPrice = oldPrice;
+        this.readyTime = readyTime;
+        this.ingred = ingred;
+    }
 
     protected FoodModel(Parcel in) {
         id = in.readString();
@@ -50,10 +85,28 @@ public class FoodModel implements Parcelable {
         orderTime = in.readString();
         location = in.readString();
         deliveryType = in.readString();
-        ingred1 = in.readString();
-        ingred2 = in.readString();
-        ingred3 = in.readString();
-        ingred4 = in.readString();
+        ingred = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(buyerId);
+        dest.writeString(imageUrl);
+        dest.writeString(name);
+        dest.writeString(price);
+        dest.writeString(oldPrice);
+        dest.writeString(readyTime);
+        dest.writeString(deliveryStatus);
+        dest.writeString(orderTime);
+        dest.writeString(location);
+        dest.writeString(deliveryType);
+        dest.writeString(ingred);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<FoodModel> CREATOR = new Creator<FoodModel>() {
@@ -76,6 +129,14 @@ public class FoodModel implements Parcelable {
         this.id = id;
     }
 
+    public String getBuyerId() {
+        return buyerId;
+    }
+
+    public void setBuyerId(String buyerId) {
+        this.buyerId = buyerId;
+    }
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -86,22 +147,6 @@ public class FoodModel implements Parcelable {
 
     public String getName() {
         return name;
-    }
-
-    public String getDeliveryStatus() {
-        return deliveryStatus;
-    }
-
-    public String getOrderTime() {
-        return orderTime;
-    }
-
-    public void setOrderTime(String orderTime) {
-        this.orderTime = orderTime;
-    }
-
-    public void setDeliveryStatus(String deliveryStatus) {
-        this.deliveryStatus = deliveryStatus;
     }
 
     public void setName(String name) {
@@ -128,12 +173,24 @@ public class FoodModel implements Parcelable {
         return readyTime;
     }
 
-    public String getBuyerId() {
-        return buyerId;
+    public void setReadyTime(String readyTime) {
+        this.readyTime = readyTime;
     }
 
-    public void setBuyerId(String buyerId) {
-        this.buyerId = buyerId;
+    public String getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
+    }
+
+    public String getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(String orderTime) {
+        this.orderTime = orderTime;
     }
 
     public String getLocation() {
@@ -144,10 +201,6 @@ public class FoodModel implements Parcelable {
         this.location = location;
     }
 
-    public void setReadyTime(String readyTime) {
-        this.readyTime = readyTime;
-    }
-
     public String getDeliveryType() {
         return deliveryType;
     }
@@ -156,80 +209,11 @@ public class FoodModel implements Parcelable {
         this.deliveryType = deliveryType;
     }
 
-    public String getIngred1() {
-        return ingred1;
+    public String getIngred() {
+        return ingred;
     }
 
-    public void setIngred1(String ingred1) {
-        this.ingred1 = ingred1;
-    }
-
-    public String getIngred2() {
-        return ingred2;
-    }
-
-    public void setIngred2(String ingred2) {
-        this.ingred2 = ingred2;
-    }
-
-    public String getIngred3() {
-        return ingred3;
-    }
-
-    public void setIngred3(String ingred3) {
-        this.ingred3 = ingred3;
-    }
-
-    public String getIngred4() {
-        return ingred4;
-    }
-
-    public void setIngred4(String ingred4) {
-        this.ingred4 = ingred4;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(buyerId);
-        dest.writeString(imageUrl);
-        dest.writeString(name);
-        dest.writeString(price);
-        dest.writeString(oldPrice);
-        dest.writeString(readyTime);
-        dest.writeString(deliveryStatus);
-        dest.writeString(orderTime);
-        dest.writeString(location);
-        dest.writeString(deliveryType);
-        dest.writeString(ingred1);
-        dest.writeString(ingred2);
-        dest.writeString(ingred3);
-        dest.writeString(ingred4);
-    }
-
-    @Override
-    public String toString() {
-        return "FoodModel{" +
-                "id='" + id + '\'' +
-                ", buyerId='" + buyerId + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", oldPrice='" + oldPrice + '\'' +
-                ", readyTime='" + readyTime + '\'' +
-                ", deliveryStatus='" + deliveryStatus + '\'' +
-                ", orderTime='" + orderTime + '\'' +
-                ", location='" + location + '\'' +
-                ", deliveryType='" + deliveryType + '\'' +
-                ", ingred1='" + ingred1 + '\'' +
-                ", ingred2='" + ingred2 + '\'' +
-                ", ingred3='" + ingred3 + '\'' +
-                ", ingred4='" + ingred4 + '\'' +
-                '}';
+    public void setIngred(String ingred) {
+        this.ingred = ingred;
     }
 }
