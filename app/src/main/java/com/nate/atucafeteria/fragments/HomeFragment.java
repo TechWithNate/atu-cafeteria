@@ -52,10 +52,10 @@ public class HomeFragment extends Fragment implements FoodAdapter.ItemClickedLis
         initViews();
 
         ArrayList<SlideModel> imageList = new ArrayList<>();
-        imageList.add(new SlideModel("https://cdn.pixabay.com/photo/2023/09/05/12/44/mug-8235059_1280.jpg", ScaleTypes.FIT));
-        imageList.add(new SlideModel("https://cdn.pixabay.com/photo/2016/09/15/19/24/salad-1672505_1280.jpg", ScaleTypes.FIT));
-        imageList.add(new SlideModel("https://cdn.pixabay.com/photo/2014/04/22/02/56/pizza-329523_1280.jpg", ScaleTypes.FIT));
-        imageList.add(new SlideModel("https://cdn.pixabay.com/photo/2017/08/30/11/39/glass-2696759_1280.jpg", ScaleTypes.FIT));
+        imageList.add(new SlideModel("https://www.cookwithnabeela.com/wp-content/uploads/2024/02/AlooSamosa3.webp", ScaleTypes.FIT));
+        imageList.add(new SlideModel("https://www.allrecipes.com/thmb/lkmpKIBFPRbfATPBoR8E57KimqM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/45921-crispy-and-creamy-doughnuts-DDMFS-4x3-4266734872014eeebaeddbe56452e18d.jpg", ScaleTypes.FIT));
+        imageList.add(new SlideModel("https://www.elmundoeats.com/wp-content/uploads/2024/02/Crispy-spring-rolls.jpg", ScaleTypes.FIT));
+        imageList.add(new SlideModel("https://www.jocooks.com/wp-content/uploads/2015/06/jelly-filled-rolls-6-500x500.jpg", ScaleTypes.FIT));
 
         slider.setImageList(imageList, ScaleTypes.FIT);
         foodModels = new ArrayList<>();
